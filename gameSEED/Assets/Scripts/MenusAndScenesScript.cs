@@ -53,6 +53,9 @@ public class MenusAndScenesScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        optionsPanel.SetActive(false);
+        mainMenuButtonsPanel.SetActive(true);
+
         resolutions = Screen.resolutions;
         filteredResolutions = new List<Resolution>();
         resolutionDropdown.ClearOptions();
