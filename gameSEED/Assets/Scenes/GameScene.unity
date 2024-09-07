@@ -772,7 +772,7 @@ MonoBehaviour:
   - {fileID: 1220301638}
   - {fileID: 978913932}
   enemiesToSpawnLeft: 0
-  enemyPrefab: {fileID: 4113465587919314541, guid: a8c8ef4da3b79b445ad553fdcbd66a2b, type: 3}
+  enemyPrefab: {fileID: 7472749090235060871, guid: 3a8a16510073b3c418390519b357ecf5, type: 3}
   toSpawn: 00000000
   words:
   - am
