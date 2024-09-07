@@ -1,23 +1,25 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI; // Needed for the Slider component
+
 
 public class Enemy : MonoBehaviour
 {
     public EnemySpawn enemySpawnScript;
+    public Tree treeScript;
+    public int lane;
     public int category;
-    public float speed;
-    public bool canMove;
-    public float damageToTree;
-    public float goldDrop;
+    private float speed;
+    private bool canMove;
+    private int damageToTree;
+    private int goldDrop;
     public string toType1;  // Word associated with this enemy
     public string toType2;
-    public TextMeshProUGUI displayWord; //what will actually be displayed on the enemy
-    public Slider treeHealthSlider; // Reference to the slider representing the tree's health
+    [SerializeField] TextMeshProUGUI displayWord; //what will actually be displayed on the enemy
 
     void Start()
     {
+        treeScript = GameObject.FindWithTag("Tree").GetComponent<Tree>();
         displayWord = gameObject.GetComponentInChildren<TextMeshProUGUI>();
         if (displayWord == null)
         {
@@ -89,19 +91,9 @@ public class Enemy : MonoBehaviour
         {
             canMove = false;
             Debug.Log("Tree hit for " + damageToTree + " damage");
-            //remove health from tree here instead of just using a debug log later
-
-            // Reduce tree health based on the enemy's damage
-            if (treeHealthSlider != null)
-            {
-                treeHealthSlider.value -= damageToTree;
-                if (treeHealthSlider.value <= 0)
-                {
-                    // Handle tree death if health reaches zero
-                    Debug.Log("Tree has been destroyed.");
-                }
-            }
-
+            treeScript.health -= damageToTree; // Reduce tree health based on the enemy's damage
+            treeScript.gold += goldDrop; // Add gold to the tree
+            enemySpawnScript.laneCounter[lane]--; // Decrement the lane counter
             Destroy(gameObject);  // Destroy the enemy after hitting the tree
         }
     }
