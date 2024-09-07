@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemySpawn : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class EnemySpawn : MonoBehaviour
     public List<string> words;                  // list of all possible words
     public int currentCount;                    // how many enemies are on the screen right now
     private List<Enemy> spawnedEnemies = new List<Enemy>();  // List to keep track of spawned enemies
-
+    public Slider treeHealthSlider;
     // Start is called before the first frame update
     void Start()
     {
@@ -93,6 +94,8 @@ public class EnemySpawn : MonoBehaviour
         enemiesToSpawnLeft--;
         enemyScript.category = toSpawn[0];
         toSpawn.RemoveAt(0);
+
+        enemyScript.treeHealthSlider = treeHealthSlider;
     }
 
     // Function to get a random word from the list

@@ -1,6 +1,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI; // Needed for the Slider component
 
 public class Enemy : MonoBehaviour
 {
@@ -13,11 +14,12 @@ public class Enemy : MonoBehaviour
     public string toType1;  // Word associated with this enemy
     public string toType2;
     public TextMeshProUGUI displayWord; //what will actually be displayed on the enemy
+    public Slider treeHealthSlider; // Reference to the slider representing the tree's health
 
     void Start()
     {
         displayWord = gameObject.GetComponentInChildren<TextMeshProUGUI>();
-        if(displayWord == null)
+        if (displayWord == null)
         {
             Debug.LogError("TextMeshPro component not found.");
             return;
@@ -28,7 +30,7 @@ public class Enemy : MonoBehaviour
         Canvas canvas = displayWord.GetComponentInParent<Canvas>();
         canvas.renderMode = RenderMode.WorldSpace;
         canvas.sortingOrder = 10; // Set a higher sorting order to ensure it appears on top
-        
+
         canMove = true;
         // Set enemy attributes based on category
         switch (category)
@@ -88,6 +90,17 @@ public class Enemy : MonoBehaviour
             canMove = false;
             Debug.Log("Tree hit for " + damageToTree + " damage");
             //remove health from tree here instead of just using a debug log later
+
+            // Reduce tree health based on the enemy's damage
+            if (treeHealthSlider != null)
+            {
+                treeHealthSlider.value -= damageToTree;
+                if (treeHealthSlider.value <= 0)
+                {
+                    // Handle tree death if health reaches zero
+                    Debug.Log("Tree has been destroyed.");
+                }
+            }
 
             Destroy(gameObject);  // Destroy the enemy after hitting the tree
         }
