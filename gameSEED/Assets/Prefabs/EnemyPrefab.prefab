@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2833264711243883972}
   - component: {fileID: 8687507355157087016}
   - component: {fileID: 1619637623840847256}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 3675760648128791051}
   - component: {fileID: 6271348558603785426}
   - component: {fileID: 6808522364100045082}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -250,7 +250,7 @@ GameObject:
   - component: {fileID: 4526819541014326960}
   - component: {fileID: 5458934346534144397}
   - component: {fileID: 8322456930876380033}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EnemyPrefab
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -377,11 +377,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySpawnScript: {fileID: 0}
+  treeScript: {fileID: 0}
+  lane: 0
   category: 0
-  speed: 0
-  canMove: 1
-  damageToTree: 0
-  goldDrop: 0
   toType1: 
   toType2: 
   displayWord: {fileID: 0}
