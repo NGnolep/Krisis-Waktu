@@ -28,7 +28,7 @@ public class Tree : MonoBehaviour
         if (health <= 0)
         {
             // Game over
-            Debug.Log("Game Over");
+            // Debug.Log("Game Over");
             spawners.SetActive(false); // Disable the spawners
         }
     }

@@ -15,10 +15,11 @@ public class Enemy : MonoBehaviour
     private int goldDrop;
     public string toType1;  // Word associated with this enemy
     public string toType2;
-    [SerializeField] TextMeshProUGUI displayWord; //what will actually be displayed on the enemy
+    public TextMeshProUGUI displayWord; //what will actually be displayed on the enemy
 
     void Start()
     {
+        toType2 = null;
         treeScript = GameObject.FindWithTag("Tree").GetComponent<Tree>();
         displayWord = gameObject.GetComponentInChildren<TextMeshProUGUI>();
         if (displayWord == null)
@@ -59,10 +60,11 @@ public class Enemy : MonoBehaviour
                 break;
 
             case 4:
-                speed = 3f;
+                speed = 0.5f;
                 damageToTree = 100;
                 goldDrop = 100;
-
+                toType2 = enemySpawnScript.GetRandomWord();
+                displayWord.text += " " + toType2;
                 break;
 
             case 5:  // Boss
@@ -93,7 +95,7 @@ public class Enemy : MonoBehaviour
             Debug.Log("Tree hit for " + damageToTree + " damage");
             treeScript.health -= damageToTree; // Reduce tree health based on the enemy's damage
             treeScript.gold += goldDrop; // Add gold to the tree
-            enemySpawnScript.laneCounter[lane]--; // Decrement the lane counter
+            // enemySpawnScript.laneCounter[lane]--; // Decrement the lane counter
             Destroy(gameObject);  // Destroy the enemy after hitting the tree
         }
     }
