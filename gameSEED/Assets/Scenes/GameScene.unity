@@ -2001,7 +2001,7 @@ Transform:
   m_GameObject: {fileID: 1754545093}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.17, y: 3.02, z: 0}
+  m_LocalPosition: {x: 11.11, y: 3.02, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2030,6 +2030,7 @@ MonoBehaviour:
   enemiesToSpawnLeft: 0
   currentRound: 0
   words: []
+  timer: 0
   spawnpoints:
   - {fileID: 1170953098}
   - {fileID: 1665359727}
@@ -2038,6 +2039,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 7472749090235060871, guid: 3a8a16510073b3c418390519b357ecf5, type: 3}
   toSpawn: 00000000
   currentCount: 0
+  laneCounter: 00000000000000000000000000000000
 --- !u!1 &1767799546
 GameObject:
   m_ObjectHideFlags: 0
