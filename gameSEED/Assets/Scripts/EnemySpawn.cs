@@ -66,77 +66,52 @@ public class EnemySpawn : MonoBehaviour
     }
 
     private void InitializePoolOfWords(){
-        poolOfWords = new List<string> {"realm", "castle", "knight", "magic", "sword", "dragon", "forest", "shield", "quest", "crown", "tower", "spell", "stone", "river", "light", "path", "king", "queen", "hero", "gate", "beast", "flame", "horse", "cloud", "star", "wood", "vine", "leaf", "sand", "hill", "cave", "fire", "moon", "wind", "wave", "gold", "tree", "seed", "rope", "ship", "boat", "dock", "tent", "wall", "map", "key", "coin", "pearl", "rock", "snow", "ice", "rain", "sun", "soil", "wolf", "bear", "hawk", "claw", "bow", "trap", "pick", "root", "crop", "tool", "pond", "cart", "flag", "mine", "safe", "gem", "orb", "bell", "hut", "helm", "bridge", "ink", "horn", "mask", "page", "nail", "glass", "chest", "hole", "pit", "den", "pool", "bed", "lamp", "leaf", "wing", "claw", "mark", "cave", "path", "gift", "lair", "herb", "band", "root", "time", "wizard", "village", "kingdom", "potion", "crystal", "ancient", "warrior", "phoenix", "portal", "fortress", "guardian", "labyrinth", "horizon", "celestial", "enchant", "sanctuary", "oracle", "eclipse", "cathedral", "elemental", "artifact", "illusion", "citadel", "dungeon", "sorcery", "mystic", "archer", "legacy", "goblin", "cavern", "canopy", "crypt", "cavern", "relic", "ember", "knightly", "canyon", "mirror", "valley", "noble", "squire", "ruins", "meadow", "tempest", "ranger", "knightmare", "griffon", "druid", "seer", "sentinel", "battalion", "falcon", "cavalier", "sanctuary", "prophecy", "artifact", "chimera", "sapphire", "emerald", "basilisk", "elemental", "scribe", "talisman", "relic", "marauder", "direwolf", "assassin", "artifact", "shaman", "fortress", "illusion", "phantom", "talon", "ranger", "sacred", "herald", "mantle", "temple", "sentinel", "brigand", "essence", "tyrant", "harbinger", "ethereal", "specter", "scimitar", "vizier", "alchemist", "harpy", "dragonfire", "glimmer", "mantle", "brigand", "coven", "minotaur", "shadowmancer", "scroll", "longbow", "scepter", "dimension", "dominion", "necromancer", "prophecy", "apocalypse", "sovereign", "equilibrium", "incantation", "astralplane", "pantheon", "constellation", "resurrection", "metamorphosis", "obsidian", "leviathan", "transcendence", "primordial", "telekinesis", "annihilation", "chronomancer", "eldritch", "subterranean", "millennium", "illumination", "incarnation", "fabrication", "oblivion", "consecration", "magnanimous", "imperious", "interminable", "arbitration", "fortification", "petrification", "transmogrify", "terraforming", "inquisitor", "emissary", "underworld", "divination", "cartographer", "enchantment", "crimsonflame", "hallucination", "masquerade", "martyrdom", "invocation", "coronation", "incineration", "congregation", "amphitheater", "illumination", "extraplanar", "evocation", "atonement", "crucifixion", "intercession", "purgatory", "gladiatorial", "resplendence", "magisterial", "purification", "hallucination", "exhumation", "telekinesis", "reinvention", "regeneration", "manifestation", "etherealplane", "annihilation", "pantheon", "dimensionless", "transmigration", "incantation", "evocation", "subterranean", "sovereignty", "introspection", "quantization", "transcendence", "illumination", "resplendence", "consternation", "extradimensional", "incineration", "harmonization", "consecration", "sanctification", "petrification", "resuscitation", "enlightenment", "equilibrium", "clairvoyance", "extra-terrestrial", "resurrection", "metamorphosis", "constellation", "extradimensional", "excommunication", "hyperborean", "transmutation", "omnipotence", "etherealrealm", "cataclysmic", "antimatter", "impermanence", "psionicwave", "singularity", "telepathy", "quintessence", "maleficium", "bioluminescence", "crystallization", "eschatological", "pseudoscorpion", "serendipitous", "introspection", "reconstitution", "antimaterialism", "deconstructionism", "solipsistic", "metaphysical", "omniscient", "bioluminescent", "necromantic", "poltergeist", "chronomancy", "transdimensional", "celestialbeing", "interstellar", "telekinetic", "psychometric", "insurmountable", "invulnerability", "existentialism", "synchronicity", "transubstantiation", "eidolon", "hyperdimensional", "necromantic", "pseudomythical", "crystallography", "meteorological", "astrophysical", "transcendental", "hyperspace", "interdimensional", "bioengineering", "extraorbital", "antimatterwave", "polyunsaturated", "introspection", "pseudoscience", "misanthropic", "convolutional", "deconstructionist", "intergalactic", "transmutation", "metaphysical", "quasistellar", "interplanetary", "levitation", "telepathic", "interdimensional", "cataclysmic", "omnipresent", "teleological", "pseudoscientific", "existential", "chronostatic", "hyperspace", "dimensionality", "omniscience", "pseudoarchaeology", "extra-universal", "malfeasance", "antimaterial", "biotechnological", "premonition", "extradimensional", "hyperdimensional", "extraterrestrial", "quantummechanical", "biomolecular", "esotericism", "crystallography", "necromantic", "etherealsphere", "quintessence", "metaphysicality", "pseudoexistential", "solipsisticwave", "omnipotential", "cataclysmicforce", "existentialbeing", "pseudoscientist", "insurmountability"};
+        poolOfWords = new List<string> {"realm", "castle", "knight",
+         "magic", "sword", "dragon", "forest", "shield", "quest", "crown",
+        "tower", "spell", "stone", "river", "light", "path", "king", "queen",
+        "hero", "gate", "beast", "flame", "horse", "cloud", "star", "wood",
+        "vine", "leaf", "sand", "hill", "cave", "fire", "moon", "wind", "wave",
+        "gold", "tree", "seed", "rope", "ship", "boat", "dock", "tent", "wall",
+        "map", "key", "coin", "pearl", "rock", "snow", "ice", "rain", "sun",
+        "soil", "wolf", "bear", "hawk", "claw", "bow", "trap", "pick", "root",
+        "crop", "tool", "pond", "cart", "flag", "mine", "safe", "gem", "orb",
+        "bell", "hut", "helm", "bridge", "ink", "horn", "mask", "page", "nail",
+        "glass", "chest", "hole", "pit", "den", "pool", "bed", "lamp", "leaf", 
+        "wing", "claw", "mark", "cave", "path", "gift", "lair", "herb", "band", 
+        "root", "time", "wizard", "village", "kingdom", "potion", "crystal", 
+        "ancient", "warrior", "phoenix", "portal", "fortress", "guardian", "labyrinth", 
+        "horizon", "celestial", "enchant", "sanctuary", "oracle", "eclipse", "cathedral", 
+        "elemental", "artifact", "illusion", "citadel", "dungeon", "sorcery", "mystic", 
+        "archer", "legacy", "goblin", "cavern", "canopy", "crypt", "cavern", "relic", "ember", 
+        "knightly", "canyon", "mirror", "valley", "noble", "squire", "ruins", "meadow", "tempest", "ranger", "knightmare", "griffon", "druid", "seer", "sentinel", "battalion", "falcon", "cavalier", "sanctuary", "prophecy", "artifact", "chimera", "sapphire", "emerald", "basilisk", "elemental", "scribe", "talisman", "relic", "marauder", "direwolf", "assassin", "artifact", "shaman", "fortress", "illusion", "phantom", "talon", "ranger", "sacred", "herald", "mantle", "temple", "sentinel", "brigand", "essence", "tyrant", "harbinger", "ethereal", "specter", "scimitar", "vizier", "alchemist", "harpy", "dragonfire", "glimmer", "mantle", "brigand", "coven", "minotaur", "shadowmancer", "scroll", "longbow", "scepter", "dimension", "dominion", "necromancer", "prophecy", "apocalypse", "sovereign", "equilibrium", "incantation", "astralplane", "pantheon", "constellation", "resurrection", "metamorphosis", "obsidian", "leviathan", "transcendence", "primordial", "telekinesis", "annihilation", "chronomancer", "eldritch", "subterranean", "millennium", "illumination", "incarnation", "fabrication", "oblivion", "consecration", "magnanimous", "imperious", "interminable", "arbitration", "fortification", "petrification", "transmogrify", "terraforming", "inquisitor", "emissary", "underworld", "divination", "cartographer", "enchantment", "crimsonflame", "hallucination", "masquerade", "martyrdom", "invocation", "coronation", "incineration", "congregation", "amphitheater", "illumination", "extraplanar", "evocation", "atonement", "crucifixion", "intercession", "purgatory", "gladiatorial", "resplendence", "magisterial", "purification", "hallucination", "exhumation", "telekinesis", "reinvention", "regeneration", "manifestation", "etherealplane", "annihilation", "pantheon", "dimensionless", "transmigration", "incantation", "evocation", "subterranean", "sovereignty", "introspection", "quantization", "transcendence", "illumination", "resplendence", "consternation", "extradimensional", "incineration", "harmonization", "consecration", "sanctification", "petrification", "resuscitation", "enlightenment", "equilibrium", "clairvoyance", "extra-terrestrial", "resurrection", "metamorphosis", "constellation", "extradimensional", "excommunication", "hyperborean", "transmutation", "omnipotence", "etherealrealm", "cataclysmic", "antimatter", "impermanence", "psionicwave", "singularity", "telepathy", "quintessence", "maleficium", "bioluminescence", "crystallization", "eschatological", "pseudoscorpion", "serendipitous", "introspection", "reconstitution", "antimaterialism", "deconstructionism", "solipsistic", "metaphysical", "omniscient", "bioluminescent", "necromantic", "poltergeist", "chronomancy", "transdimensional", "celestialbeing", "interstellar", "telekinetic", "psychometric", "insurmountable", "invulnerability", "existentialism", "synchronicity", "transubstantiation", "eidolon", "hyperdimensional", "necromantic", "pseudomythical", "crystallography", "meteorological", "astrophysical", "transcendental", "hyperspace", "interdimensional", "bioengineering", "extraorbital", "antimatterwave", "polyunsaturated", "introspection", "pseudoscience", "misanthropic", "convolutional", "deconstructionist", "intergalactic", "transmutation", "metaphysical", "quasistellar", "interplanetary", "levitation", "telepathic", "interdimensional", "cataclysmic", "omnipresent", "teleological", "pseudoscientific", "existential", "chronostatic", "hyperspace", "dimensionality", "omniscience", "pseudoarchaeology", "extra-universal", "malfeasance", "antimaterial", "biotechnological", "premonition", "extradimensional", "hyperdimensional", "extraterrestrial", "quantummechanical", "biomolecular", "esotericism", "crystallography", "necromantic", "etherealsphere", "quintessence", "metaphysicality", "pseudoexistential", "solipsisticwave", "omnipotential", "cataclysmicforce", "existentialbeing", "pseudoscientist", "insurmountability"};
     }
 
     private void SortPoolOfWords(){
-        letterWords = new List<string>[9];
-        while(poolOfWords.Count > 0){
-            // if(poolOfWords[0].Length == 2){
-            //     if(letterWords[0] == null){
-            //         Debug.Log("2 letter words is null");
-            //         letterWords[0] = new List<string>();
-            //     }
-            //     letterWords[0].Add(poolOfWords[0]);
-            //     Debug.Log("Added " + poolOfWords[0] + " to 2 letter words");
-            // } else if(poolOfWords[0].Length == 3){
-            //     if(letterWords[1] == null){
-            //         Debug.Log("3 letter words is null");
-            //         letterWords[1] = new List<string>();
-            //     }
-            //     letterWords[1].Add(poolOfWords[0]);
-            //     Debug.Log("Added " + poolOfWords[0] + " to 3 letter words");
-            // } else if(poolOfWords[0].Length == 4){
-            //     if(letterWords[2] == null){
-            //         Debug.Log("4 letter words is null");
-            //         letterWords[2] = new List<string>();
-            //     }
-            //     letterWords[2].Add(poolOfWords[0]);
-            //     Debug.Log("Added " + poolOfWords[0] + " to 4 letter words");
-            // } else if(poolOfWords[0].Length == 5){
-            //     if(letterWords[3] == null){
-            //         Debug.Log("5 letter words is null");
-            //         letterWords[3] = new List<string>();
-            //     }
-            //     letterWords[3].Add(poolOfWords[0]);
-            //     Debug.Log("Added " + poolOfWords[0] + " to 5 letter words");
-            // } else if(poolOfWords[0].Length == 6){
-            //     if(letterWords[4] == null){
-            //         Debug.Log("6 letter words is null");
-            //         letterWords[4] = new List<string>();
-            //     }
-            //     letterWords[4].Add(poolOfWords[0]);
-            //     Debug.Log("Added " + poolOfWords[0] + " to 6 letter words");
-            // } else if(poolOfWords[0].Length == 7){
-            //     if(letterWords[5] == null){
-            //         Debug.Log("7 letter words is null");
-            //         letterWords[5] = new List<string>();
-            //     }
-            //     letterWords[5].Add(poolOfWords[0]);
-            //     Debug.Log("Added " + poolOfWords[0] + " to 7 letter words");
-            // } else if(poolOfWords[0].Length == 8){
-            //     if(letterWords[6] == null){
-            //         Debug.Log("8 letter words is null");
-            //         letterWords[6] = new List<string>();
-            //     }
-            //     letterWords[6].Add(poolOfWords[0]);
-            //     Debug.Log("Added " + poolOfWords[0] + " to 8 letter words");
-            // } else if(poolOfWords[0].Length == 9){
-            //     if(letterWords[7] == null){
-            //         Debug.Log("9 letter words is null");
-            //         letterWords[7] = new List<string>();
-            //     }
-            //     letterWords[7].Add(poolOfWords[0]);
-            //     Debug.Log("Added " + poolOfWords[0] + " to 9 letter words");
-            // } else{
-            //     if(letterWords[8] == null){
-            //         Debug.Log("10 letter words is null");
-            //         letterWords[8] = new List<string>();
-            //     }
-            //     letterWords[8].Add(poolOfWords[0]);
-            //     Debug.Log("Added " + poolOfWords[0] + " to 10 letter words");
-            // } 
-            poolOfWords.RemoveAt(0);
+        letterWords = new List<string>[9];  // Create an array of Lists for each word length (2 to 10 letters)
+
+        // Initialize the lists in letterWords
+        for (int i = 0; i < letterWords.Length; i++)
+        {
+            letterWords[i] = new List<string>();
+        }
+
+        foreach (var word in poolOfWords)
+        {
+            int wordLength = word.Length;
+            // Word length between 2 and 10
+            if (wordLength >= 2 && wordLength <= 10)
+            {
+                letterWords[wordLength - 2].Add(word);
+                Debug.Log($"Added {word} to {wordLength}-letter words");
+            }
+            else if(wordLength < 2)
+            {
+                letterWords[0].Add(word);
+            }
+            else if(wordLength > 10)
+            {
+                letterWords[8].Add(word);
+            }
         }
     }
 
@@ -151,16 +126,24 @@ public class EnemySpawn : MonoBehaviour
     }
 
     void randomizeEnemyCategory(int waveValue){
+        int randomInt;
         while (waveValue > 0){
-            if(waveValue > 4){
-                toSpawn.Add(Random.Range(1, 5));
-            } else if(waveValue > 3){
-                toSpawn.Add(Random.Range(1, 4));
+            if(waveValue > 3){
+                randomInt = Random.Range(1, 5);
+                toSpawn.Add(randomInt);
             } else if(waveValue > 2){
-                toSpawn.Add(Random.Range(1, 3));
+                randomInt = Random.Range(1, 4);
+                toSpawn.Add(randomInt);
             } else if(waveValue > 1){
-                toSpawn.Add(1);
+                randomInt = Random.Range(1, 3);
+                toSpawn.Add(randomInt);
+            } else if(waveValue == 1){
+                randomInt = 1;
+                toSpawn.Add(randomInt);
+            } else{
+                break;
             }
+            waveValue -= randomInt;
         }
     }
     
@@ -174,7 +157,7 @@ public class EnemySpawn : MonoBehaviour
             case 1:
                 waveValue = 20;
                 randomizeEnemyCategory(waveValue);
-                activeWords = letterWords[0];  // Example words
+                activeWords = letterWords[4];  // Example words
                 break;
                 
             case 2:
@@ -286,13 +269,13 @@ public class EnemySpawn : MonoBehaviour
             {
                 if(enemy.toType2 == null){
                     DestroyEnemy(enemy);
+                    break;
                 } else{
                     enemy.displayWord.text = enemy.toType2;
                     enemy.toType1 = enemy.toType2;
                     enemy.toType2 = null;
                     ClearTypedWord();
                 }
-                break;
             } 
         }
     }
