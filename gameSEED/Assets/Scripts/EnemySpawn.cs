@@ -7,6 +7,7 @@ using Unity.VisualScripting;
 
 public class EnemySpawn : MonoBehaviour
 {
+    
     public int waveValue;
     public Tree treeScript;                     // Reference to the tree script
     public string typedWord;                    // what the player is typing
@@ -288,7 +289,9 @@ public class EnemySpawn : MonoBehaviour
     // Function to destroy enemy
     public void DestroyEnemy(Enemy enemy)
     {
+        treeScript.health += treeScript.lifeSteal;
         spawnedEnemies.Remove(enemy);    // Remove from active enemy list
+        treeScript.gold += enemy.goldDrop;
         Destroy(enemy.gameObject);       // Destroy enemy object
         currentCount--;
         ClearTypedWord();       // Clear the typed word 

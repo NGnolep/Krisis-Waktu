@@ -88,8 +88,8 @@ public class Mercenary : MonoBehaviour
         yield return new WaitForSeconds(1f);
         spawnerScript.spawnedEnemies.Remove(targetEnemy);    // Remove from active enemy list
         Destroy(targetEnemy.gameObject);       // Destroy enemy object
+        spawnerScript.treeScript.gold += targetEnemy.goldDrop / 2;           // Add gold to player's gold count
         spawnerScript.currentCount--;
-        spawnerScript.ClearTypedWord();       // Clear the typed word 
         isWaiting = false;
     }
 }

@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour
     private float speed;
     private bool canMove;
     private int damageToTree;
-    private int goldDrop;
+    public int goldDrop;
     public string toType1;  // Word associated with this enemy
     public string toType2;
     public TextMeshProUGUI displayWord; //what will actually be displayed on the enemy
@@ -66,11 +66,6 @@ public class Enemy : MonoBehaviour
                 toType2 = enemySpawnScript.GetRandomWord();
                 displayWord.text += " " + toType2;
                 break;
-
-            case 5:  // Boss
-                damageToTree = 999999999;
-                break;
-
             default:
                 break;
         }
@@ -83,7 +78,10 @@ public class Enemy : MonoBehaviour
         // Move left if canMove is true
         if (canMove)
         {
-            transform.position += new Vector3(-speed * Time.deltaTime, 0, 0);
+            if (treeScript.enemiesAreStunned == false)
+            {
+                transform.position += new Vector3(treeScript.movementSpeedMultiplier * -speed * Time.deltaTime, 0, 0);
+            }
         }
     }
 
@@ -92,10 +90,21 @@ public class Enemy : MonoBehaviour
         if (other.tag == "Tree")
         {
             canMove = false;
-            Debug.Log("Tree hit for " + damageToTree + " damage");
-            treeScript.health -= damageToTree; // Reduce tree health based on the enemy's damage
+            if(!treeScript.isMitigatingDamage){
+                Debug.Log("Tree hit for " + damageToTree + " damage");
+                if(treeScript.shield != 0){
+                    if(treeScript.shield < damageToTree){
+                        damageToTree -= treeScript.shield;
+                        treeScript.shield = 0;
+
+                    } else{
+                        treeScript.shield -= damageToTree;
+                        damageToTree = 0;
+                    }
+                }
+                treeScript.health -= damageToTree; // Reduce tree health based on the enemy's damage
+            }
             treeScript.gold += goldDrop; // Add gold to the tree
-            // enemySpawnScript.laneCounter[lane]--; // Decrement the lane counter
             Destroy(gameObject);  // Destroy the enemy after hitting the tree
         }
     }
