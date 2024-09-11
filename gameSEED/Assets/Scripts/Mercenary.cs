@@ -1,15 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class Mercenary : MonoBehaviour
 {
+    [SerializeField] EnemySpawn spawnerScript;
     public float detectRange = 20f;   // Range to detect enemies
     public float attackRange = 2f;    // Range at which the mercenary attacks the enemy
     public float moveSpeed = 5f;      // Speed at which the mercenary moves
-    private GameObject targetEnemy;
+    private Enemy targetEnemy;
     private Camera mainCamera;
-
+    bool isWaiting = false;
+    
     private void Start()
     {
         mainCamera = Camera.main;  // Get reference to the main camera
@@ -24,11 +25,18 @@ public class Mercenary : MonoBehaviour
     // Detect the nearest enemy with the "Enemy" tag that is on screen
     private void DetectEnemies()
     {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        GameObject[] enemyObjects = GameObject.FindGameObjectsWithTag("Enemy");
+        Enemy[] enemies = new Enemy[enemyObjects.Length];
+
+        for (int i = 0; i < enemyObjects.Length; i++)
+        {
+            enemies[i] = enemyObjects[i].GetComponent<Enemy>();
+        }
+
         float closestDistance = detectRange;
         targetEnemy = null;
 
-        foreach (GameObject enemy in enemies)
+        foreach (Enemy enemy in enemies)
         {
             if (IsEnemyOnScreen(enemy))
             {
@@ -44,7 +52,7 @@ public class Mercenary : MonoBehaviour
     }
 
     // Check if the enemy is within the camera's view
-    private bool IsEnemyOnScreen(GameObject enemy)
+    private bool IsEnemyOnScreen(Enemy enemy)
     {
         Vector3 screenPoint = mainCamera.WorldToViewportPoint(enemy.transform.position);
         bool isOnScreen = screenPoint.z > 0 && screenPoint.x > 0 && screenPoint.x < 1 && screenPoint.y > 0 && screenPoint.y < 1;
@@ -61,7 +69,9 @@ public class Mercenary : MonoBehaviour
             // If the enemy is within attack range, destroy the enemy
             if (distanceToTarget <= attackRange)
             {
-                Destroy(targetEnemy);
+                if(!isWaiting){
+                    Coroutine waitCoroutine = StartCoroutine(Wait());
+                }
             }
             else
             {
@@ -70,5 +80,16 @@ public class Mercenary : MonoBehaviour
                 transform.position += direction * moveSpeed * Time.deltaTime;
             }
         }
+    }
+
+    private IEnumerator Wait()
+    {
+        isWaiting = true;
+        yield return new WaitForSeconds(1f);
+        spawnerScript.spawnedEnemies.Remove(targetEnemy);    // Remove from active enemy list
+        Destroy(targetEnemy.gameObject);       // Destroy enemy object
+        spawnerScript.currentCount--;
+        spawnerScript.ClearTypedWord();       // Clear the typed word 
+        isWaiting = false;
     }
 }

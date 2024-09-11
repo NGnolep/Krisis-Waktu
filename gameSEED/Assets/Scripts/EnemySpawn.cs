@@ -18,7 +18,7 @@ public class EnemySpawn : MonoBehaviour
     [SerializeField] GameObject enemyPrefab;
     [SerializeField] List<int> toSpawn;         // list of enemies to spawn (put in the ints for the categories)
     public int currentCount;    // how many enemies are on the screen right now
-    private List<Enemy> spawnedEnemies = new List<Enemy>();     // List to keep track of spawned enemies
+    public List<Enemy> spawnedEnemies = new List<Enemy>();     // List to keep track of spawned enemies
     public List<string> poolOfWords;  // list of all possible words
     public List<string>[] letterWords;  // list of all possible words
     public List<string> activeWords;
@@ -114,7 +114,7 @@ public class EnemySpawn : MonoBehaviour
             }
         }
     }
-
+    
     // Increment timer
     private IEnumerator IncrementTimer()
     {
