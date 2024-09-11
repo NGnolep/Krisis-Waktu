@@ -4,7 +4,7 @@ using UnityEngine.UI; // Needed for the Slider component
 
 public class Tree : MonoBehaviour
 {
-    public int shield;
+    public int shield = 0;
     public int gold;
     public int health;
     public int maxHealth;
@@ -17,6 +17,7 @@ public class Tree : MonoBehaviour
     public bool enemiesAreStunned = false;
     public bool enemiesAreSlowed = false;
     public int movementSpeedMultiplier = 1;
+    public int lifeSteal = 0;
     // Start is called before the first frame update
     void Start()
     {
