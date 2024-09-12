@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 24298976}
   - component: {fileID: 24298978}
   - component: {fileID: 24298977}
+  - component: {fileID: 24298979}
   m_Layer: 5
   m_Name: Mercenary Unlock/Upgrade
   m_TagString: Untagged
@@ -200,6 +201,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 24298975}
   m_CullTransparentMesh: 1
+--- !u!114 &24298979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 24298975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4604f269f3de9743b48281274ff3cf4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Gold: {fileID: 0}
+  shopPanel: {fileID: 24298975}
+  HPButton: {fileID: 0}
+  shieldButton: {fileID: 0}
+  lifeSteal: {fileID: 0}
+  stun: {fileID: 0}
+  mitigation: {fileID: 0}
+  slow: {fileID: 0}
 --- !u!1 &50828402
 GameObject:
   m_ObjectHideFlags: 0
