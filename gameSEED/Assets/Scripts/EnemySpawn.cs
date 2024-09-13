@@ -161,6 +161,8 @@ public class EnemySpawn : MonoBehaviour
     void Initialize()
     {
         currentCount = 0;
+        treeScript.shield += treeScript.addShield;
+
         switch (currentRound)
         {
             //for example on what to put per round:
@@ -171,7 +173,7 @@ public class EnemySpawn : MonoBehaviour
                 break;
                 
             case 2:
-
+                
                 break;
             
             case 3:

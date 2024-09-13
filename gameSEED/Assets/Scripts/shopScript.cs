@@ -16,11 +16,17 @@ public class ShopScript : MonoBehaviour
 
     [Header("Buttons")]
     public GameObject buttonToUpgradeHP;
+
     public GameObject buttonToUpgradeShield;
+    
     public GameObject buttonToUpgradeLifesteal;
+    
     public GameObject buttonToUpgradeStun;
+    
     public GameObject buttonToUpgradeMitigation;
+    
     public GameObject buttonToUpgradeSlow;
+
 
     [Header("Gold Costs")]
     public int goldForHP;
@@ -29,6 +35,7 @@ public class ShopScript : MonoBehaviour
     public int goldForStun;
     public int goldForMitigation;
     public int goldForSlow;
+    public int addShield;
 
     [Header("Upgrades")]
     public int hpUpgradedAmount;
@@ -88,7 +95,7 @@ public class ShopScript : MonoBehaviour
         }
     }
 
-    void HPUpgrade(){
+    public void HPUpgrade(){
         int upgradeAmountInt = 0;
         switch (hpUpgradedAmount){
             case 0:
@@ -120,38 +127,37 @@ public class ShopScript : MonoBehaviour
         }
     }
 
-    void UpgradeShield(){
-        int shield = 0;
+    public void UpgradeShield(){
         switch (shieldUpgradedAmount){
             case 0:
-                shield = 5;
+                addShield = 5;
                 goldForShield = 5;
                 break;
             case 1:
-                shield = 15;
+                addShield = 15;
                 goldForShield = 25;
                 break;
             case 2:
-                shield = 30;
+                addShield = 30;
                 goldForShield = 40;
                 break;
             case 3:
-                shield = 50;
+                addShield = 50;
                 goldForShield = 60;
                 break;
             case 4:
-                shield = 75;
+                addShield = 75;
                 goldForShield = 80;
                 break;
         }
         if(treeScript.gold > goldForShield){
             shieldUpgradedAmount++;
             treeScript.gold -= goldForShield;
-            treeScript.shield = shield;
+            treeScript.addShield = addShield;
         }
     }
 
-    void UpgradeLifesteal(){
+    public void UpgradeLifesteal(){
         int lifeSteal = 0;
         switch (lifestealUpgradedAmount){
             case 0:
@@ -174,7 +180,7 @@ public class ShopScript : MonoBehaviour
         }
     }
 
-    void UpgradeStun(){
+    public void UpgradeStun(){
         float stunDuration = 0;
         switch (stunUpgradedAmount){
             case 0:
@@ -205,7 +211,7 @@ public class ShopScript : MonoBehaviour
         }
     }
 
-    void UpgradeMitigation(){
+    public void UpgradeMitigation(){
         int mitigation = 0;
         switch (mitigationUpgradedAmount){
             case 0:
@@ -236,7 +242,7 @@ public class ShopScript : MonoBehaviour
         }
     }
 
-    void UpgradeSlow(){
+    public void UpgradeSlow(){
         float slowAmount = 0;
         switch (slowUpgradedAmount){
             case 0:
@@ -266,31 +272,5 @@ public class ShopScript : MonoBehaviour
             treeScript.gold -= goldForSlow;
             treeScript.slowAmount = slowAmount;
         }
-    }
-    
-
-    void ShieldUpgrade()
-    {
-
-    }
-
-    void LifestealUpgrade()
-    {
-
-    }
-
-    void StunUpgrade()
-    {
-
-    }
-
-    void MitigationUpgrade()
-    {
-
-    }
-
-    void SlowUpgrade()
-    {
-
     }
 }
