@@ -4,7 +4,6 @@ using UnityEngine.UI; // Needed for the Slider component
 
 public class Tree : MonoBehaviour
 {
-    public int shield = 0;
     public int gold;
     public int health;
     public int maxHealth;
@@ -12,12 +11,25 @@ public class Tree : MonoBehaviour
     public TextMeshProUGUI healthText; // Reference to the text displaying the tree's health
     public GameObject spawners; // Reference to the spawners object
     public EnemySpawn enemySpawnerScript; // Reference to the EnemySpawner script
+    
+    [Header("Upgrade Related")]
     public GameObject shopPanel;
-    public bool isMitigatingDamage = false;
-    public bool enemiesAreStunned = false;
-    public bool enemiesAreSlowed = false;
-    public int movementSpeedMultiplier = 1;
     public int lifeSteal = 0;
+    public int shield = 0;
+    
+    public float stunDuration;
+    public bool enemiesAreStunned = false;
+    public int stunCooldown;
+
+    public float slowDuration;
+    public bool enemiesAreSlowed = false;
+    public float slowAmount = 0;
+    public int slowCooldown;
+
+    public int mitigationAmount;
+    public bool isMitigatingDamage = false;
+    public int mitigationCooldown;
+    
     // Start is called before the first frame update
     void Start()
     {

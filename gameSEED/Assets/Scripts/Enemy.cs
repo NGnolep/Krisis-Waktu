@@ -80,7 +80,11 @@ public class Enemy : MonoBehaviour
         {
             if (treeScript.enemiesAreStunned == false)
             {
-                transform.position += new Vector3(treeScript.movementSpeedMultiplier * -speed * Time.deltaTime, 0, 0);
+                if(treeScript.enemiesAreSlowed){
+                    transform.position += new Vector3((1 - treeScript.slowAmount) * -speed * Time.deltaTime, 0, 0);
+                } else{
+                    transform.position += new Vector3(-speed * Time.deltaTime, 0, 0);
+                }
             }
         }
     }
@@ -90,20 +94,27 @@ public class Enemy : MonoBehaviour
         if (other.tag == "Tree")
         {
             canMove = false;
-            if(!treeScript.isMitigatingDamage){
-                Debug.Log("Tree hit for " + damageToTree + " damage");
-                if(treeScript.shield != 0){
-                    if(treeScript.shield < damageToTree){
-                        damageToTree -= treeScript.shield;
-                        treeScript.shield = 0;
+            Debug.Log("Tree hit for " + damageToTree + " damage");
+            
+            if(treeScript.isMitigatingDamage){
+                damageToTree -= treeScript.mitigationAmount;
+            } 
 
-                    } else{
-                        treeScript.shield -= damageToTree;
-                        damageToTree = 0;
-                    }
+            if(treeScript.shield != 0){
+                if(treeScript.shield < damageToTree){
+                    damageToTree -= treeScript.shield;
+                    treeScript.shield = 0;
+                } else{
+                    treeScript.shield -= damageToTree;
+                    damageToTree = 0;
                 }
-                treeScript.health -= damageToTree; // Reduce tree health based on the enemy's damage
             }
+            
+            if(damageToTree < 0){
+                damageToTree = 0;
+            }
+
+            treeScript.health -= damageToTree; // Reduce tree health based on the enemy's damage
             treeScript.gold += goldDrop; // Add gold to the tree
             Destroy(gameObject);  // Destroy the enemy after hitting the tree
         }
