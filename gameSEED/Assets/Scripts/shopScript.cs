@@ -5,6 +5,10 @@ using TMPro;
 
 public class shopScript : MonoBehaviour
 {
+    [Header("Script References")]
+    public EnemySpawn enemySpawn;
+
+    [Header("Object References")]
     public TextMeshProUGUI Gold;
     public GameObject shopPanel;
     public GameObject HPButton;
@@ -22,6 +26,10 @@ public class shopScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if(enemySpawn.waveValue == 0)
+        {
+            shopPanel.SetActive(true);
+            
+        }
     }
 }
