@@ -12,7 +12,6 @@ public class ShopScript : MonoBehaviour
 
     [Header("Object References")]
     public TextMeshProUGUI Gold;
-    public GameObject shopPanel;
 
     [Header("Buttons")]
     public GameObject buttonToUpgradeHP;
@@ -53,11 +52,6 @@ public class ShopScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(enemySpawn.waveValue == 0)
-        {
-            shopPanel.SetActive(true);
-        }
-
         if(treeScript.gold > goldForHP){
             buttonToUpgradeHP.SetActive(true);
         } else{

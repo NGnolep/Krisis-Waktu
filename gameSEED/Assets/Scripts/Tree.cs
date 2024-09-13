@@ -93,6 +93,8 @@ public class Tree : MonoBehaviour
             enemiesAreSlowed = false;
             enemiesAreStunned = false;
             isMitigatingDamage = false;
+
+            shopPanel.SetActive(true);
         }
     }
 
