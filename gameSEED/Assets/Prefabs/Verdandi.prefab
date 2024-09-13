@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5516762842508933232}
   - component: {fileID: 6712523111919958405}
   m_Layer: 0
-  m_Name: Square 1
+  m_Name: Verdandi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
