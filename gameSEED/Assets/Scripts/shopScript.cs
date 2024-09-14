@@ -46,7 +46,7 @@ public class ShopScript : MonoBehaviour
 
     void Start()
     {
-                shopPanel.SetActive(false);
+        // shopPanel.SetActive(false);
     }
 
     // Update is called once per frame

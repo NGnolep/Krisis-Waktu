@@ -6580,7 +6580,6 @@ MonoBehaviour:
   enemySpawn: {fileID: 1107991245}
   treeScript: {fileID: 1636786749}
   Gold: {fileID: 1308921811}
-  shopPanel: {fileID: 192748628}
   buttonToUpgradeHP: {fileID: 230145538}
   buttonToUpgradeShield: {fileID: 2029104984}
   buttonToUpgradeLifesteal: {fileID: 1131582073}
@@ -10637,7 +10636,7 @@ MonoBehaviour:
   healthText: {fileID: 1311612368}
   spawners: {fileID: 1107991244}
   enemySpawnerScript: {fileID: 0}
-  shopScript: {fileID: 0}
+  shopScript: {fileID: 1057520066}
   shopPanel: {fileID: 192748628}
   lifeSteal: 0
   shield: 0
