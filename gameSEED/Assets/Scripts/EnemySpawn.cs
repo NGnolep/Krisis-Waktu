@@ -7,7 +7,6 @@ using Unity.VisualScripting;
 
 public class EnemySpawn : MonoBehaviour
 {
-    
     public int waveValue;
     public Tree treeScript;                     // Reference to the tree script
     public string typedWord;                    // what the player is typing
@@ -64,35 +63,42 @@ public class EnemySpawn : MonoBehaviour
             typedWord += Input.inputString.ToLower();  // Get the player's typed input
             CheckWordMatch(typedWord);
         }
+
+        if(currentCount == 0 && enemiesToSpawnLeft == 0)
+        {
+            treeScript.shopPanel.SetActive(true);
+        }
     }
 
     private void InitializePoolOfWords(){
         poolOfWords = new List<string> {
-            //easy
+        
+        //easy
         "realm", "castle", "knight", "magic", "sword", "dragon", "forest", "shield", "quest", "crown", "tower", "spell", "stone", 
         "river", "light", "path", "king", "queen", "hero", "gate", "beast", "flame", "horse", "cloud", "star", "wood", "vine", "leaf", "sand", 
         "hill", "cave", "fire", "moon", "wind", "wave", "gold", "tree", "seed", "rope", "ship", "boat", "dock", "tent", "wall", 
         "map", "key", "coin", "pearl", "rock", "snow", "ice", "rain", "sun", "soil", "wolf", "bear", "hawk", "claw", "bow", "trap", "pick", "root", 
         "crop", "tool", "pond", "cart", "flag", "mine", "safe", "gem", "orb", "bell", "hut", "helm", "bridge", "ink", "horn", "mask", 
         "page", "nail", "glass", "chest", "hole", "pit", "den", "pool", "bed", "lamp", "leaf", "wing", "claw", "mark", "cave", "path", "gift", "lair", "herb", "band", "root", "time",
-            //medium
+        //medium
         "wizard", "village", "kingdom", "potion", "crystal", "ancient", "warrior", "phoenix", "portal", "fortress", "guardian", "labyrinth", "horizon", "celestial", "enchant", "sanctuary", "oracle", "eclipse", "cathedral", "elemental", "artifact", "illusion", "citadel", 
         "dungeon", "sorcery", "mystic", "archer", "legacy", "goblin", "cavern", "canopy", "meadow", "crypt", "cavern", "relic", "ember", "knightly", "canyon", "mirror", "valley", "noble", "squire", "ruins", "meadow", "tempest", "ranger", "knightmare", "griffon", "druid", "seer", 
         "sentinel", "battalion", "falcon", "cavalier", "prophecy", "artifact", "chimera", "sapphire", "emerald", "basilisk", "scribe", "talisman", "relic", "marauder", "direwolf", "assassin", "shaman", "phantom", "talon", "ranger", "sacred", "herald", "mantle", "temple", "brigand", 
         "essence", "tyrant", "harbinger", "ethereal", "specter", "scimitar", "vizier", "alchemist", "harpy", "dragonfire", "glimmer", "coven", "minotaur", "shadowmancer", "scroll", "longbow", "scepter", "palisade", "alchemy", "blacksmith", "wanderer", "magical", "megalith", "apprentice", "demigod",
-            //hard
+        //hard
         "dimension", "dominion", "necromancer", "prophecy", "apocalypse", "sovereign", "equilibrium", "incantation", "astralplane", "pantheon", "constellation", "resurrection", "metamorphosis", "obsidian", "leviathan", "transcendence", "primordial", "telekinesis", "annihilation", "chronomancer", "eldritch", 
         "subterranean", "millennium", "illumination", "incarnation", "fabrication", "oblivion", "consecration", "magnanimous", "imperious", "interminable", "arbitration", "fortification", "petrification", "transmogrify", "terraforming", "inquisitor", "emissary", "underworld", "divination", "cartographer", 
         "crimsonflame", "hallucination", "masquerade", "martyrdom", "invocation", "coronation", "incineration", "congregation", "amphitheater", "illumination", "extraplanar", "evocation", "harmonization", "respiration", "atonement", "crucifixion", "intercession", "purgatory", "gladiatorial", "resplendence",
         "magisterial", "purification", "exhumation", "telekinesis", "reinvention", "regeneration", "manifestation", "etherealplane", "pantheon", "dimensionless", "transmigration", "sovereignty", "clairvoyance", "extra-terrestrial", "enlightenment", "resurrection", "metamorphosis", "illumination", "consternation", 
         "rejuvenation", "purgatorial", "transfiguration", "petrification", "mythological", "rematerialize", "sanctification", "crystallization", "regeneration", "spectacular", "propitiation", "extraplanar", "apotheosis", "arcane", "eschatological", "underworld", "vanguard", "rejuvenation", "dimensional", "impermanence",
-            //very hard
+        //very hard
         "extradimensional", "hyperborean", "transmutation", "omnipotence", "cataclysmic", "antimatter", "impermanence", "psionicwave", "singularity", "telepathy", "quintessence", "maleficium", "bioluminescence", "crystallization", "eschatological", "pseudoscorpion", "serendipitous", "reconstitution", "antimaterialism", 
         "deconstructionism", "solipsistic", "metaphysical", "necromantic", "poltergeist", "chronomancy", "transdimensional", "celestialbeing", "interstellar", "telekinetic", "psychometric", "insurmountable", "invulnerability", "existentialism", "synchronicity", "transubstantiation", "eidolon", "hyperdimensional", "necromantic", 
         "pseudomythical", "crystallography", "meteorological", "astrophysical", "transcendental", "hyperspace", "interdimensional", "bioengineering", "extraorbital", "antimatterwave", "polyunsaturated", "pseudoscience", "misanthropic", "convolutional", "deconstructionist", "intergalactic", "transmutation", "metaphysical", 
         "quasistellar", "interplanetary", "levitation", "telepathic", "interdimensional", "cataclysmic", "omniscient", "pseudoarchaeology", "malfeasance", "antimaterial", "biotechnological", "premonition", "quantummechanical", "biomolecular", "esotericism", "extra-universal", "extradimensional", "hyperdimensional", "extraterrestrial", 
         "pseudoexistential", "omnipresent", "omniscient", "metaphysicality", "bioluminescent", "existential", "crystallographic", "quantization", "solipsisticwave", "etherealsphere", "quintessence", "pseudoscientific", "rejuvenation", "inconceivable", "serendipity", "introspective", "malfeasance", "transmutation", "deconstruction", 
         "psychometric", "telepathic", "clairvoyance", "metamorphosis", "extraordinary", "transcendence"
+        
         };
     }
 

@@ -113,7 +113,8 @@ public class Enemy : MonoBehaviour
             if(damageToTree < 0){
                 damageToTree = 0;
             }
-
+            enemySpawnScript.currentCount--; // Reduce the enemy count
+            enemySpawnScript.spawnedEnemies.Remove(this); // Remove from active enemy list
             treeScript.health -= damageToTree; // Reduce tree health based on the enemy's damage
             treeScript.gold += goldDrop; // Add gold to the tree
             Destroy(gameObject);  // Destroy the enemy after hitting the tree
